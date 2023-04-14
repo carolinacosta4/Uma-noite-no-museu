@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Uma noite no museu</title>
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    <script id="link" type="text/html">
+        <a-entity class="link" 
+          geometry="primitive: plane; height: 1; width: 1"
+          material="shader: flat; src: ${thumb}"
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
+          sound="on: click; src: #click-sound"></a-entity>
+    </script>
+</head>
+<body>
+      <a-scene>
+        <a-assets>
+            <img id="sky" crossorigin="anonymous" src="assests/white.jpg">
+            <a-asset-item id = "museum" src="solo_exhibition_of_angelo_ribezzi/scene.gltf"></a-asset-item> 
+            <img id="hilma-thumb" crossorigin="anonymous" src="assests/hilma-af.jpg">
+            <img id="our-thumb" crossorigin="anonymous" src="assests/donut-thumb.jpg">
+            <img id="joan-thumb" crossorigin="anonymous" src="assests/joan-miro.png">
+            <img id="back-thumb" crossorigin="anonymous" src="assests/back.png">
+            <audio id="click-sound" crossorigin="anonymous" src="assests/click.wav"></audio>
+            <audio id="song" src="assests/Peaches_etude.mp3"></audio>
+            <audio id="songMiro" src="assests/Neptune_the_mystic.wav"></audio>
+            <audio id="songHilma" src="assests/Pavane_for_dead_princess.wav"></audio>
+            <audio id="songOur" src="assests/Swan_lake.mp3"></audio>
+        </a-assets>
+
+        <a-sound src="#song" position ="0 -2 0" autoplay="true" volume="0.1"></a-sound>
+
+        <a-sky id="image-360" radius="5" src="#sky"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+
+        <a-entity position="0 -2 0">
+            <a-camera id="camera"></a-camera>
+        </a-entity>
+
+        <a-entity id="links" scale="0.5 0.5 0.5" layout="type: line; margin: 1.6" rotation="0 90 0" position = "-1.185 -0.4 0.8">
+            <a-entity template="src: #link" onclick="changeCameraPositionMiro()" data-thumb="#joan-thumb"></a-entity>
+            <a-entity template="src: #link" onclick="changeCameraPositionHilma()" data-thumb="#hilma-thumb"></a-entity>
+            <a-entity template="src: #link" onclick="changeCameraPositionOurs()" data-thumb="#our-thumb"></a-entity>
+        </a-entity>
+
+        <a-entity id="links" scale="0.5 0.5 0.5" rotation="0 180 0" position = "-10 0 12.5">
+            <a-entity template="src: #link" onclick="goHome()" data-thumb="#back-thumb"></a-entity>
+        </a-entity>
+
+        <a-entity camera look-controls>
+            <a-cursor
+              id="cursor"
+              animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+              animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+              event-set__mouseenter="_event: mouseenter; color: springgreen"
+              event-set__mouseleave="_event: mouseleave; color: black"
+              raycaster="objects: .link"></a-cursor>
+        </a-entity>
+        
+
+        <a-entity position ="0 0 0" gltf-model="#museum"></a-entity>
+        <a-assets position ="-50 -20 -10"> 
+            <a-asset-item id="miro" src="assests/arte-miro.gltf"></a-asset-item>
+            <img id="sky2" src="assests/miroback.JPG">
+        </a-assets>
+        <a-sound src="#songMiro" position ="-50 -20 -10" autoplay="false" volume="0.1"></a-sound>
+        <a-sky position ="-10 0 8" id="image-360" radius="5" src="#sky2"
+            animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+            animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+        <a-entity>
+            <a-entity rotation="90 0 0" position ="-17 -4 8" scale="25 25 25" gltf-model="#miro"></a-entity>
+        </a-entity>
+
+        <a-assets position ="-50 -20 -10"> 
+            <a-asset-item id="hilma" src="assests/SWAN17-HILDA.glb"></a-asset-item>
+            <img id="sky3" src="assests/hilmaback.JPG">
+        </a-assets>
+        <a-sound src="#songHilma" position ="-50 -20 -10" autoplay="false" volume="0.1"></a-sound>
+        <a-sky position ="-10 0 -4" id="image-360" radius="5" src="#sky3"
+            animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+            animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+        <a-entity>
+            <a-entity rotation="90 0 0" position ="-10 0 -6" scale="40 40 40" gltf-model="#hilma"></a-entity>
+        </a-entity>
+
+        <a-assets position ="-50 -20 -10"> 
+            <a-asset-item id="ours" src="assests/donut.glb"></a-asset-item>
+            <img id="sky4" src="assests/donut-back.png">
+        </a-assets>
+        <a-sound src="#songOur" position ="-50 -20 -10" autoplay="false" volume="0.1"></a-sound>
+        <a-sky position ="-10 0 -16" id="image-360" radius="5" src="#sky4"
+            animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+            animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+        <a-entity>
+            <a-entity position ="-10 -1 -16" scale="8 8 8" gltf-model="#ours"></a-entity>
+        </a-entity>
+    </a-scene>
+    <script>
+        function changeCameraPositionMiro() {
+            var camera = document.querySelector('#camera');
+            camera.setAttribute('position', '-11 2 12');
+            var audio = document.querySelector('#songMiro');
+            audio.play();
+            
+        }
+
+        function changeCameraPositionHilma() {
+            var camera = document.querySelector('#camera');
+            camera.setAttribute('position', '-11 2 0');
+            var audio = document.querySelector('#songHilma');
+            audio.play();
+        }
+        
+        function changeCameraPositionOurs() {
+            var camera = document.querySelector('#camera');
+            camera.setAttribute('position', '-11 2 -12');
+            var audio = document.querySelector('#songOur');
+            audio.play();
+        }
+
+        function goHome(){
+            var camera = document.querySelector('#camera');
+            camera.setAttribute('position', '0 -2 0');
+        }
+    </script>
+</body>
+</html>
