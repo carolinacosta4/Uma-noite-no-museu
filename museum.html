@@ -24,7 +24,6 @@
             <img id="hilma-thumb" crossorigin="anonymous" src="assests/hilma-af.jpg">
             <img id="our-thumb" crossorigin="anonymous" src="assests/donut-thumb.jpg">
             <img id="joan-thumb" crossorigin="anonymous" src="assests/joan-miro.png">
-            <img id="back-thumb" crossorigin="anonymous" src="assests/back.png">
             <audio id="click-sound" crossorigin="anonymous" src="assests/click.wav"></audio>
             <audio id="song" src="assests/Peaches_etude.mp3"></audio>
             <audio id="songMiro" src="assests/Neptune_the_mystic.wav"></audio>
@@ -42,25 +41,61 @@
             <a-camera id="camera"></a-camera>
         </a-entity>
 
+        <a-entity id="backButton" position="-10 -2 3.5" scale="0.5 0.5 0.5" onclick="goHome()" cursor-listener>
+            <a-plane width="1.8" height="0.5" color="red"></a-plane>
+            <a-text value="Voltar" align="center" color="black" width="10" position="0 0 0"></a-text>
+        </a-entity>
+        <a-entity position="-10 -0.5 3.5" scale="0.5 0.5 0.5" #cursor>
+            <a-plane width="5" height="4.5" color="white"></a-plane>
+            <a-text value="Miro explora sua visao \n do mundo atraves de uma \n serie de pinturas criadas \n entre 1920 e 1945. \n As obras apresentam uma \n mistura de figuras abstratas \n e simbolicas, combinadas \n com elementos realistas, \n criando uma sensação de \n sonho lucido." align="center" color="black" width="8" position="0 0 0"></a-text>
+        </a-entity>
+        <a-entity position="-10 1 3.5" scale="0.5 0.5 0.5" #cursor>
+            <a-plane width="3" height="1" color="white"></a-plane>
+            <a-text value="'Absolute Reality' \n por Joan Miro" align="center" color="black" width="8" position="0 0 0"></a-text>
+        </a-entity>
+        
+        <!--<a-entity id="backButton" position="-10 -2 -8.5" scale="0.5 0.5 0.5" onclick="" cursor-listener>
+            <a-plane width="1.8" height="0.5" color="blue"></a-plane>
+            <a-text value="Voltar" align="center" color="black" width="10" position="0 0 0"></a-text>
+        </a-entity>
+        <a-entity position="-10 -0.5 -8.5" scale="0.5 0.5 0.5" #cursor>
+            <a-plane width="5" height="4.5" color="white"></a-plane>
+            <a-text value="'O Cisne n.17' e uma pintura \n em grande escala que \n apresenta formas geometricas \n e cores vibrantes, \n sugerindo uma conexao entre \n a ciencia e a espiritualidade, \n que era uma das \n principais preocupacoes de \n af Klint em sua arte" align="center" color="black" width="8" position="0 0 0"></a-text>
+        </a-entity>
+        <a-entity position="-10 1 -8.5" scale="0.5 0.5 0.5" #cursor>
+            <a-plane width="3" height="1" color="white"></a-plane>
+            <a-text value="'O Cisne n.17' \n por Hilma af Klint" align="center" color="black" width="8" position="0 0 0"></a-text>
+        </a-entity>
+
+        <a-entity id="" position="-10 -2 -20.5" scale="0.5 0.5 0.5" onclick="" cursor-listener>
+            <a-plane width="1.8" height="0.5" color="beige"></a-plane>
+            <a-text value="Voltar" align="center" color="black" width="10" position="0 0 0"></a-text>
+        </a-entity>
+        <a-entity position="-10 -0.5 -20.5" scale="0.5 0.5 0.5" #cursor>
+            <a-plane width="5" height="4.5" color="white"></a-plane>
+            <a-text value="Miro explora sua visao \n do mundo atraves de uma \n serie de pinturas criadas \n entre 1920 e 1945. \n As obras apresentam uma \n mistura de figuras abstratas \n e simbolicas, combinadas \n com elementos realistas, \n criando uma sensação de \n sonho lucido." align="center" color="black" width="8" position="0 0 0"></a-text>
+        </a-entity>
+        <a-entity position="-10 1 -20.5" scale="0.5 0.5 0.5" #cursor>
+            <a-plane width="3" height="1" color="white"></a-plane>
+            <a-text value="'Absolute Reality' \n por Joan Miro" align="center" color="black" width="8" position="0 0 0"></a-text>
+        </a-entity>-->
+
         <a-entity id="links" scale="0.5 0.5 0.5" layout="type: line; margin: 1.6" rotation="0 90 0" position = "-1.185 -0.4 0.8">
             <a-entity template="src: #link" onclick="changeCameraPositionMiro()" data-thumb="#joan-thumb"></a-entity>
             <a-entity template="src: #link" onclick="changeCameraPositionHilma()" data-thumb="#hilma-thumb"></a-entity>
             <a-entity template="src: #link" onclick="changeCameraPositionOurs()" data-thumb="#our-thumb"></a-entity>
         </a-entity>
 
-        <a-entity id="links" scale="0.5 0.5 0.5" rotation="0 180 0" position = "-10 0 12.5">
-            <a-entity template="src: #link" onclick="goHome()" data-thumb="#back-thumb"></a-entity>
-        </a-entity>
-
         <a-entity camera look-controls>
             <a-cursor
               id="cursor"
-              animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-              animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+              animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 2 2 2; dur: 150"
+              animation__fusing="property: fusing; startEvents: fusing; from: 2 2 2 ; to: 0.1 0.1 0.1; dur: 1500"
               event-set__mouseenter="_event: mouseenter; color: springgreen"
               event-set__mouseleave="_event: mouseleave; color: black"
               raycaster="objects: .link"></a-cursor>
         </a-entity>
+        <a-entity cursor="rayOrigin: mouse" raycaster=""></a-entity>
         
 
         <a-entity position ="0 0 0" gltf-model="#museum"></a-entity>
@@ -89,7 +124,7 @@
         </a-entity>
 
         <a-assets position ="-50 -20 -10"> 
-            <a-asset-item id="ours" src="assests/donut.glb"></a-asset-item>
+            <a-asset-item id="ours" src="assests/donut.gltf"></a-asset-item>
             <img id="sky4" src="assests/donut-back.png">
         </a-assets>
         <a-sound src="#songOur" position ="-50 -20 -10" autoplay="false" volume="0.1"></a-sound>
@@ -125,7 +160,7 @@
 
         function goHome(){
             var camera = document.querySelector('#camera');
-            camera.setAttribute('position', '0 -2 0');
+            camera.setAttribute('position', '0 1.6 0');
         }
     </script>
 </body>
