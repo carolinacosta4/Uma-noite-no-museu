@@ -42,43 +42,43 @@
         </a-entity>
 
         <a-entity id="backButton" position="-10 -2 3.5" scale="0.5 0.5 0.5" onclick="goHome()" cursor-listener>
-            <a-plane width="1.8" height="0.5" color="red"></a-plane>
-            <a-text value="Voltar" align="center" color="black" width="10" position="0 0 0"></a-text>
+            <a-plane width="1.8" height="0.5" onclick="goHome()" color="red"></a-plane>
+            <a-text value="Voltar" align="center" color="black" onclick="goHome()" width="10" position="0 0 0"></a-text>
         </a-entity>
-        <a-entity position="-10 -0.5 3.5" scale="0.5 0.5 0.5" #cursor>
+        <a-entity position="-10 -0.5 3.5" scale="0.5 0.5 0.5">
             <a-plane width="5" height="4.5" color="white"></a-plane>
             <a-text value="Miro explora sua visao \n do mundo atraves de uma \n serie de pinturas criadas \n entre 1920 e 1945. \n As obras apresentam uma \n mistura de figuras abstratas \n e simbolicas, combinadas \n com elementos realistas, \n criando uma sensação de \n sonho lucido." align="center" color="black" width="8" position="0 0 0"></a-text>
         </a-entity>
-        <a-entity position="-10 1 3.5" scale="0.5 0.5 0.5" #cursor>
+        <a-entity position="-10 1 3.5" scale="0.5 0.5 0.5">
             <a-plane width="3" height="1" color="white"></a-plane>
             <a-text value="'Absolute Reality' \n por Joan Miro" align="center" color="black" width="8" position="0 0 0"></a-text>
         </a-entity>
         
-        <!--<a-entity id="backButton" position="-10 -2 -8.5" scale="0.5 0.5 0.5" onclick="" cursor-listener>
-            <a-plane width="1.8" height="0.5" color="blue"></a-plane>
-            <a-text value="Voltar" align="center" color="black" width="10" position="0 0 0"></a-text>
+        <a-entity id="backButton" position="-10 -2 -8.5" scale="0.5 0.5 0.5" onclick="goHome()" cursor-listener>
+            <a-plane width="1.8" height="0.5" onclick="goHome()" color="blue"></a-plane>
+            <a-text value="Voltar" align="center" color="black" onclick="goHome()" width="10" position="0 0 0"></a-text>
         </a-entity>
-        <a-entity position="-10 -0.5 -8.5" scale="0.5 0.5 0.5" #cursor>
+        <a-entity position="-10 -0.5 -8.5" scale="0.5 0.5 0.5">
             <a-plane width="5" height="4.5" color="white"></a-plane>
             <a-text value="'O Cisne n.17' e uma pintura \n em grande escala que \n apresenta formas geometricas \n e cores vibrantes, \n sugerindo uma conexao entre \n a ciencia e a espiritualidade, \n que era uma das \n principais preocupacoes de \n af Klint em sua arte" align="center" color="black" width="8" position="0 0 0"></a-text>
         </a-entity>
-        <a-entity position="-10 1 -8.5" scale="0.5 0.5 0.5" #cursor>
+        <a-entity position="-10 1 -8.5" scale="0.5 0.5 0.5">
             <a-plane width="3" height="1" color="white"></a-plane>
             <a-text value="'O Cisne n.17' \n por Hilma af Klint" align="center" color="black" width="8" position="0 0 0"></a-text>
         </a-entity>
 
-        <a-entity id="" position="-10 -2 -20.5" scale="0.5 0.5 0.5" onclick="" cursor-listener>
-            <a-plane width="1.8" height="0.5" color="beige"></a-plane>
-            <a-text value="Voltar" align="center" color="black" width="10" position="0 0 0"></a-text>
+        <a-entity position="-10 -2 -20.5" scale="0.5 0.5 0.5" onclick="goHome()" cursor-listener>
+            <a-plane width="1.8" height="0.5" onclick="goHome()" color="beige"></a-plane>
+            <a-text value="Voltar" align="center" color="black" onclick="goHome()" width="10" position="0 0 0"></a-text>
         </a-entity>
         <a-entity position="-10 -0.5 -20.5" scale="0.5 0.5 0.5" #cursor>
             <a-plane width="5" height="4.5" color="white"></a-plane>
-            <a-text value="Miro explora sua visao \n do mundo atraves de uma \n serie de pinturas criadas \n entre 1920 e 1945. \n As obras apresentam uma \n mistura de figuras abstratas \n e simbolicas, combinadas \n com elementos realistas, \n criando uma sensação de \n sonho lucido." align="center" color="black" width="8" position="0 0 0"></a-text>
+            <a-text value="A cena retratada nesta obra \n é de uma doce tentacao, que \n evoca sentimentos de alegria e \n prazer. A empilhagem dos \n donuts sugere uma estrutura \n forte e estavel. O donut \n rosa na base serve como \n um fundamento solido para \n os outros dois, enquanto \n o branco no topo acrescenta \n uma sensacao de frescor \n e vitalidade." align="center" color="black" width="8" position="0 0 0"></a-text>
         </a-entity>
         <a-entity position="-10 1 -20.5" scale="0.5 0.5 0.5" #cursor>
             <a-plane width="3" height="1" color="white"></a-plane>
-            <a-text value="'Absolute Reality' \n por Joan Miro" align="center" color="black" width="8" position="0 0 0"></a-text>
-        </a-entity>-->
+            <a-text value="'Sweetness' \n por Grupo 7" align="center" color="black" width="8" position="0 0 0"></a-text>
+        </a-entity>
 
         <a-entity id="links" scale="0.5 0.5 0.5" layout="type: line; margin: 1.6" rotation="0 90 0" position = "-1.185 -0.4 0.8">
             <a-entity template="src: #link" onclick="changeCameraPositionMiro()" data-thumb="#joan-thumb"></a-entity>
